@@ -17,7 +17,7 @@ final class HomeAction
     public function __invoke(RequestInterface $request)
     {
         return $this->renderer->make('index', [
-            'title' => 'Главная страница'
+
         ]);
     }
 }
