@@ -6,10 +6,11 @@ $capsule = new Capsule;
 
 $capsule->addConnection([
     'driver'    => 'mysql',
-    'host'      => 'localhost',
-    'database'  => 'ntschool',
-    'username'  => 'root',
-    'password'  => 'root',
+    'host'      => env('DATABASE_HOST'),
+    'database'  => env('DATABASE_DBNAME'),
+    'username'  => env('DATABASE_USERNAME'),
+    'password'  => env('DATABASE_PASSWORD'),
+    'port'      => '3306',
     'charset'   => 'utf8',
     'collation' => 'utf8_unicode_ci',
     'prefix'    => '',

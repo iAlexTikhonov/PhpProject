@@ -11,6 +11,7 @@
         "illuminate/view": "^6.8",
         "illuminate/database": "^6.8",
         "guzzlehttp/psr7": "^1.5",
-        "aura/di": "^4.0"
+        "aura/di": "^4.0",
+        "vlucas/phpdotenv": "^3.3"
     }
 }

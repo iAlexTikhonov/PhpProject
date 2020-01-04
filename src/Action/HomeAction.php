@@ -2,6 +2,7 @@
 
 namespace NtSchool\Action;
 
+use Illuminate\Database\Capsule\Manager;
 use Psr\Http\Message\RequestInterface;
 
 final class HomeAction
@@ -16,8 +17,12 @@ final class HomeAction
 
     public function __invoke(RequestInterface $request)
     {
-        return $this->renderer->make('index', [
 
+        $posts = Manager::select("SELECT * FROM posts");
+
+
+        return $this->renderer->make('index', [
+            'posts' => $posts
         ]);
     }
 }
