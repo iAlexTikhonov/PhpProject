@@ -18,7 +18,9 @@
                                 </div>
                                 <!-- Post Data -->
                                 <div class="post-data">
-                                    <a href="#" class="post-catagory">Finance</a>
+                                    <?php $__currentLoopData = $post->categories; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $category): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <a href="/category/<?php echo e($category->id); ?>" class="post-catagory"><?php echo e($category->title); ?></a>
+                                    <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                                     <a href="#" class="post-title">
                                         <h6><?php echo e($post->title); ?></h6>
                                     </a>

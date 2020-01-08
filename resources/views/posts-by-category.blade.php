@@ -11,7 +11,7 @@
             <div class="col-12 col-lg-8">
                 <div class="row">
 
-                    @foreach($posts as $post)
+                    @foreach($categoryAll as $post)
                     <!-- Single Blog Post -->
                         <div class="col-12 col-lg-6">
                             <div class="single-blog-post style-3">
@@ -40,20 +40,20 @@
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination">
 
-                                    @if($posts->currentPage() == 1)
-                                        <li class="page-item"><a class="page-link" href="?page={{ $posts->currentPage() }}">Previous</a></li>
+                                    @if($categoryAll->currentPage() == 1)
+                                        <li class="page-item"><a class="page-link" href="/category/{{ $categoryId }}?page={{ $categoryAll->currentPage() }}">Previous</a></li>
                                     @else
-                                        <li class="page-item"><a class="page-link" href="?page={{ $posts->currentPage() - 1 }}">Previous</a></li>
+                                        <li class="page-item"><a class="page-link" href="/category/{{ $categoryId }}?page={{ $categoryAll->currentPage() - 1 }}">Previous</a></li>
                                     @endif
 
                                     @for($i = 1; $i <= $counter; $i++)
-                                    <li class="page-item"><a class="page-link" href="/?page={{ $i }}">{{ $i }}</a></li>
+                                    <li class="page-item"><a class="page-link" href="/category/{{ $categoryId }}?page={{ $i }}">{{ $i }}</a></li>
                                     @endfor
 
-                                    @if($posts->currentPage() == $counter)
-                                        <li class="page-item"><a class="page-link" href="?page={{ $posts->currentPage() }}">Next</a></li>
+                                    @if($categoryAll->currentPage() == $counter)
+                                        <li class="page-item"><a class="page-link" href="/category/{{ $categoryId }}?page={{ $categoryAll->currentPage() }}">Next</a></li>
                                     @else
-                                        <li class="page-item"><a class="page-link" href="?page={{ $posts->currentPage() + 1 }}">Next</a></li>
+                                        <li class="page-item"><a class="page-link" href="/category/{{ $categoryId }}?page={{ $categoryAll->currentPage() + 1 }}">Next</a></li>
                                     @endif
                                 </ul>
                             </nav>

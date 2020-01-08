@@ -1,9 +1,9 @@
 {
-    "name": "ntschool/php3",
+    "name": "phpproject/php3",
     "type": "project",
     "autoload": {
         "psr-4": {
-            "NtSchool\\": "src/"
+            "PhpProject\\": "src/"
         }
     },
     "require": {
