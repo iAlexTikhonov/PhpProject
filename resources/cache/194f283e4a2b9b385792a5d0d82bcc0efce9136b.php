@@ -66,11 +66,31 @@
                     <!-- Newsletter Widget -->
                     <div class="newsletter-widget mb-70">
                         <h4>Sign up to <br>our newsletter</h4>
-                        <form action="#" method="post">
+                        <form method="POST">
                             <input type="text" name="name" placeholder="Name">
+                            <?php if($messages !== null && $messages->has('name')): ?>
+                                <?php $__currentLoopData = $messages->get('name'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $message): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <p style="color: #4efc03"><?php echo e($message); ?></p>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
                             <input type="email" name="email" placeholder="Email">
+                            <?php if($messages !== null && $messages->has('email')): ?>
+                                <?php $__currentLoopData = $messages->get('email'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $message): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <p style="color: #4efc03"><?php echo e($message); ?></p>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
                             <input type="password" name="password" placeholder="Password">
-                            <input type="password" name="passwordConfirmation" placeholder="Confirm password">
+                            <?php if($messages !== null && $messages->has('password')): ?>
+                                <?php $__currentLoopData = $messages->get('password'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $message): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <p style="color: #4efc03"><?php echo e($message); ?></p>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
+                            <input type="password" name="password_confirmation" placeholder="Confirm password">
+                            <?php if($messages !== null && $messages->has('password_confirmation')): ?>
+                                <?php $__currentLoopData = $messages->get('password_confirmation'); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $message): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                                    <p style="color: #4efc03"><?php echo e($message); ?></p>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+                            <?php endif; ?>
                             <button type="submit" class="btn w-100">Sign up</button>
                         </form>
                     </div>

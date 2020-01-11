@@ -7,13 +7,16 @@
         }
     },
     "require": {
-        "php": "^7.0",
+        "php": "^7.2",
         "aura/router": "^3.1",
         "illuminate/view": "^6.8",
         "illuminate/database": "^6.8",
         "guzzlehttp/psr7": "^1.5",
         "aura/di": "^4.0",
         "vlucas/phpdotenv": "^3.3",
-        "illuminate/pagination": "^6.8"
+        "illuminate/pagination": "^6.8",
+        "illuminate/validation": "^6.10",
+        "illuminate/filesystem": "^6.10",
+        "illuminate/translation": "^6.10"
     }
 }

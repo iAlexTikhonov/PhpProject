@@ -152,7 +152,7 @@
 
                             <!-- Video Post Button -->
                             <div class="add-post-button">
-                                <a href="#" class="btn add-post-btn">Add Post</a>
+                                <a href="#" class="btn add-post-btn">Sign In</a>
                             </div>
 
                         </div>
