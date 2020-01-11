@@ -5,6 +5,7 @@ namespace PhpProject\Action;
 use Illuminate\Validation\ValidationException;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Database\Capsule\Manager;
+use PhpProject\LoggerNotifyInterface;
 use PhpProject\Model\Post;
 use PhpProject\Model\User;
 use Psr\Http\Message\ServerRequestInterface;
@@ -18,10 +19,13 @@ final class HomeAction
     /** @var \Illuminate\Validation\Factory */
     private $validator;
 
-    public function __construct($renderer, $validator)
+    private $logger;
+
+    public function __construct($renderer, $validator, LoggerNotifyInterface $logger)
     {
         $this->renderer = $renderer;
         $this->validator = $validator;
+        $this->logger = $logger;
     }
 
     public function __invoke(ServerRequestInterface $request)
@@ -52,6 +56,7 @@ final class HomeAction
                     $user->save();
                 }, 3);
 
+                $this->logger->info('New user registered');
 
                 $_SESSION['user'] = $user;
 

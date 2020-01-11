@@ -31,7 +31,7 @@ final class UserPageAction
         $userName = $userData[0]->name;
 
 
-//        unset($_SESSION['user']);
+        unset($_SESSION['user']);
 
         return $this->renderer->make('user-page', [
             'name' => $userName

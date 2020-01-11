@@ -3,6 +3,8 @@
 /** @var $renderer \Illuminate\View\Factory */
 
 use Aura\Di\ContainerBuilder;
+use Monolog\Logger;
+use Monolog\Handler\StreamHandler;
 
 $builder = new ContainerBuilder();
 $container = $builder->newInstance();
@@ -26,8 +28,21 @@ $container->set('validator', function () use ($capsule) {
     return $validator;
 });
 
+$container->set('logger', function() {
+    $log = new Logger('name');
+    $log->pushHandler(new StreamHandler(__DIR__ . '/../resources/logs/main.log'));
+
+    $logger = new \PhpProject\MonologLoggerAdapter($log);
+
+    return $logger;
+});
+
 $container->set(\PhpProject\Action\HomeAction::class, function () use ($renderer, $container) {
-    return new \PhpProject\Action\HomeAction($renderer, $container->get('validator'));
+    return new \PhpProject\Action\HomeAction(
+        $renderer,
+        $container->get('validator'),
+        $container->get('logger')
+    );
 });
 
 $container->set(\PhpProject\Action\CategoryAction::class, function () use ($renderer) {
