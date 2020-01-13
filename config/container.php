@@ -37,8 +37,12 @@ $container->set('logger', function() {
     return $logger;
 });
 
-$container->set(\PhpProject\Action\HomeAction::class, function () use ($renderer, $container) {
-    return new \PhpProject\Action\HomeAction(
+$container->set(\PhpProject\Action\HomeAction::class, function () use ($renderer) {
+    return new \PhpProject\Action\HomeAction($renderer);
+});
+
+$container->set(\PhpProject\Action\SignUpAction::class, function () use ($renderer, $container) {
+    return new \PhpProject\Action\SignUpAction(
         $renderer,
         $container->get('validator'),
         $container->get('logger')
